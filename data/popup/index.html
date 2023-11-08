@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <form>
+    <div id="host-container">
+      <input type="text" id="host" readonly placeholder="location">
+    </div>
+    <div id="backup-container">
+      <h2>Backup</h2>
+      <div class="two">
+        <input type="checkbox" id="backup.local.storage">
+        <label for="backup.local.storage">Backup local storage<span id="local.storage.count"></span></label>
+        <input type="checkbox" id="backup.cookie">
+        <label for="backup.cookie">Backup cookie<span id="cookie.count"></span></label>
+        <input type="checkbox" id="backup.disk">
+        <label for="backup.disk">Save to disk</label>
+        <input type="checkbox" id="backup.synced">
+        <label for="backup.synced">Save to synced storage</label>
+      </div>
+      <input type="submit" id="backup" value="Backup" accesskey="b" title="Alt + B or Option + B">
+    </div>
+    <div id="restore-container">
+      <h2>Restore</h2>
+      <div class="two">
+        <input type="checkbox" id="restore.local.storage">
+        <label for="restore.local.storage">Restore local storage</label>
+        <input type="checkbox" id="restore.cookie">
+        <label for="restore.cookie">Restore cookie</label>
+      </div>
+      <div class="one">
+        <input type="button" id="clean" value="Remove from Storage" accesskey="m" title="Alt + M or Option + M" disabled>
+        <input type="submit" id="restore.synced" value="Restore from Storage" accesskey="s" title="Alt + S or Option + S" disabled>
+        <input type="submit" id="restore.disk" value="Restore from Disk" accesskey="r" title="Alt + R or Option + R">
+      </div>
+    </div>
+    <div id="password-container">
+      <span>Password</span>
+      <input type="password" id="pass.one" required pattern="(?=.*[a-zA-Z])(?=.*[0-9]).{5,}" title="Password must be at least 5 characters long and contain at least one number and one letter" placeholder="Required">
+      <input type="button" id="show" value="Show">
+      <span>Confirm</span>
+      <input type="password" id="pass.two" pattern="(?=.*[a-zA-Z])(?=.*[0-9]).{5,}" title="Password must be at least 5 characters long and contain at least one number and one letter" placeholder="Required for backup only">
+      <input type="button" id="close" value="Close">
+    </div>
+  </form>
+  <script type="text/javascript" src="persist.js"></script>
+  <script type="text/javascript" src="safe.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
